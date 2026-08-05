@@ -12,7 +12,7 @@ import practica.backend.exceptions.ValidationException;
 import practica.backend.services.UserService;
 
 @RestController
-@RequestMapping("/v1/user")
+@RequestMapping("/api/auth")
 public class UserController {
 
     private final UserService userService;
