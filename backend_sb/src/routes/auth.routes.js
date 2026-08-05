@@ -1,0 +1,13 @@
+const express=require("express");
+const router=express.Router();
+
+const authController=require("../controllers/auth.controller");
+const authMiddleware=require("../middlewares/auth.middleware");
+
+router.post("/login",authController.login);
+router.post("/logout",authController.logout);
+router.get("/profile",authMiddleware,authController.profile);
+router.put("/change-password",authMiddleware,authController.changePassword);
+router.post("/register", authController.register);
+
+module.exports=router;
