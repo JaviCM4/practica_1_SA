@@ -5,6 +5,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import practica.backend.exceptions.ConflictException;
 import practica.backend.exceptions.ResourceNotFoundException;
 import practica.backend.exceptions.ValidationException;
 
@@ -35,5 +36,9 @@ public class ControllerExceptionHandler {
         return ex.getMessage();
     }
 
-
+    @ExceptionHandler(ConflictException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public String handleConflict(ConflictException ex) {
+        return ex.getMessage();
+    }
 }
